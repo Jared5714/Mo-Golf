@@ -1,0 +1,30 @@
+<% include ./partials/header %>
+
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-3">
+      <h3><%= user.firstName + " " + user.lastName %></h3>
+      <div class = "thumbnail">
+      <img src = "<%= user.avatar %>">
+      </div>
+      <li><%= user.username %></li>
+      <li><%= user.email %></li>
+    </div>
+    <div class = "col-md-9">
+      <h3>User Courses</h3>
+      <% courses.forEach(function(course){ %>
+      <div class="card m-2 float-left" style="width: 20rem;">
+        <a href ="/courses/<%= course._id %>"><img class="card-img" src="<%= course.image %>" alt="Card image cap"></a>
+      <div class="card-body">
+        <h5 class="card-title"><%= course.name %></h5>
+        <p class="card-text"><%= course.description.substring(0, 100) %></p>
+        <a href ="/courses/<%= course._id %>" class="btn btn-outline-warning btn-sm">More Info</a>
+        <p class = "card-subtitle mt-2 text-muted"></p>
+      </div>
+    </div>
+    <% }); %>
+    </div>
+  </div>
+</div>
+
+<% include ./partials/footer %>

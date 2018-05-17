@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+
+<div class = "container pt-3 mb-5">
+  <header class="jumbotron">
+         <div class="container">
+            <h1 class = "text-white">Missouri Courses</h1>
+             <p class = "text-white">View our hand-picked course from all over the Missouri area</p>
+             <p>
+                <a class="btn btn-warning btn-large text-white" href="/courses/new">Add New Course</a>
+             </p>
+         </div>
+     </header>
+  <div class="row d-flex justify-content-between" style="display:flex; flex-wrap: wrap;">
+    <div class = "col-md-12">
+  <% courses.forEach(function(course){ %>
+    <div class="card m-2 float-left" style="width: 350px;">
+      <a href ="/courses/<%= course._id %>"><img class="card-img" src="<%= course.image %>" alt="Card image cap"></a>
+      <div class="card-body">
+        <h5 class="card-title"><%= course.name %></h5>
+        <p class="card-text"><%= course.description.substring(0, 100) %></p>
+        <a href ="/courses/<%= course._id %>" class="btn btn-outline-warning btn-sm">More Info</a>
+        <p class = "card-subtitle mt-2 text-muted"></p>
+      </div>
+    </div>
+    <% }); %>
+    </div>
+  </div>
+</div>
+
+<% include ../partials/footer %>
+
+
+

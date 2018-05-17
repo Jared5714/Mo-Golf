@@ -1,0 +1,30 @@
+body {
+  background-color: #000;
+}
+
+#landing-header {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  padding-top: 20vh;
+}
+
+#landing-header h1 {
+  color: #fff;
+}
+
+.slideshow { 
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: url(https://i.ytimg.com/vi/Yzt-izCSVEE/maxresdefault.jpg) 
+}

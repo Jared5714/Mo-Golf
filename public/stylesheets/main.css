@@ -1,0 +1,40 @@
+.thumbnail img{
+    width: 100%;
+}
+
+.thumbnail{
+    padding: 0;
+}
+
+.delete-form{
+    display: inline;
+}
+.bg { 
+    background-image: url("http://www.golfmagic.com/sites/default/files/GettyImages-1107064.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#map {
+    height: 600px;
+    width: 100%;
+}
+
+.show-container{
+    max-width: 90%;
+    margin: 0 auto;
+}
+.navbar{
+    background-color: #008e10;
+}
+
+.footer {
+    background-color: #008e10;
+    color: #fff;
+}
+
+.jumbotron{
+    background-color: #008e10;
+}

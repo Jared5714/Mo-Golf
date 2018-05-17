@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+<div class = "container mt-5">
+  <div class = "row">
+    <div style="width: 60%; margin: 25px auto;">
+      <h3>Add A Course</h3>
+      <form action ="/courses" method = "post">
+        <fieldset>
+          <div class="form-group">
+            <label for="name">Course Name</label>
+            <input type="text" size="50" class="form-control" name="name" placeholder="Enter Course Name">
+          </div>    
+          <div class="form-group">
+            <label for="image">Image URL</label>
+            <input type="text" class="form-control" name="image" placeholder="Image URL">
+          </div>    
+          <div class="form-group">
+            <label for="image">Cost</label>
+            <input type="text" class="form-control" name="cost" placeholder="9.99">
+          </div>
+          <div class="form-group">
+            <label for="location">Address</label>
+            <input class="form-control" type="text" name="location" id="location" placeholder="123 AnyStreet AnyTown, AnyState">
+          </div>
+          <div class="form-group">
+            <label for="image">Description</label>
+            <textarea class="form-control" name="desc" rows="10" cols="80" placeholder="Description"></textarea>
+          </div>
+          <button type="submit" class="btn btn-outline-warning">Submit</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+
+<% include ../partials/footer %>

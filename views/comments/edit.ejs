@@ -1,0 +1,15 @@
+<% include ../partials/header %>
+<div class = "container">
+<h3>Edit Comment</h3>
+<form action="/courses/<%= course_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+  <fieldset>
+    <div class="form-group">
+      <label for="comment">Comment</label>
+      <input type="text" size="50" class="form-control" name="comment[text]" value="<%= comment.text %>">
+    </div>    
+    <button type="submit" class="btn btn-sm btn-outline-warning">Update</button>
+  </fieldset>
+</form>
+</div>
+
+<% include ../partials/footer %>

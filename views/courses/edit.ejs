@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+<div class = "container">
+<h3>Edit <%= course.name %></h3>
+<form action ="/courses/<%= course._id %>?_method=PUT" method = "post">
+  <fieldset>
+    <div class="form-group">
+      <label for="name">Course Name</label>
+      <input type="text" size="50" class="form-control" name="course[name]" value="<%= course.name %>">
+    </div>    
+    <div class="form-group">
+      <label for="image">Image URL</label>
+      <input type="text" width="30%" class="form-control" name="course[image]" value="<%= course.image %>">
+    </div>    
+    <div class="form-group">
+      <label for="image">Cost</label>
+      <input type="text" width="30%" class="form-control" name="course[cost]" value="<%= course.cost %>">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class = "form-control" name="course[description]" rows="10" cols="100" class="form-control" placeholder="Image URL"><%= course.description %></textarea>
+    </div>
+    <div class="form-group">
+      <label for="location">Address</label>
+      <input class="form-control" type="text" name="location" id="location" value="<%= course.location %>">
+    </div>
+    <button type="submit" class="btn btn-outline-warning btn-sm">Update</button>
+  </fieldset>
+</form>
+</div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,35 @@
+<% include ./partials/header %>
+
+<div style="width: 30%; margin: 25px auto;" class = "container mt-5">
+<h4>Register</h4>
+<form action ="/register" method = "post">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="username" class="form-control" name="username" placeholder="Username">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" placeholder="Password">
+  </div>  <div class="form-group">
+    <label for="password">Confirm Password</label>
+    <input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password">
+  </div>
+  <div class="form-group">
+    <label for="username">First Name</label>
+    <input type="username" class="form-control" name="firstName" placeholder="First Name">
+  </div>
+  <div class="form-group">
+    <label for="username">Last Name</label>
+    <input type="username" class="form-control" name="lastName" placeholder="Last Name">
+  </div>
+  <div class="form-group">
+    <label for="username">Profile Image</label>
+    <input type="username" class="form-control" name="avatar" aria-describedby="emailHelp" placeholder="Profile Image URL">
+  </div>
+  <div class="form-group">
+    <label for="username">Email</label>
+    <input type="username" class="form-control" name="email" placeholder="johndoe@example.com">
+  </div>
+  <button type="submit" class="btn btn-warning text-white">Sign Up</button>
+</form>
+</div>

@@ -1,0 +1,15 @@
+<% include ../partials/header %>
+<div class = "container">
+<h3>Add New Comment to <%= course.name %></h3>
+<form action ="/courses/<%= course._id %>/comments" method = "post">
+  <fieldset>
+    <div class="form-group">
+      <label for="comment">Comment</label>
+      <input type="text" size="50" class="form-control" name="comment[text]" placeholder="Text">
+    </div>    
+    <button type="submit" class="btn btn-sm btn-outline-primary">Submit</button>
+  </fieldset>
+</form>
+</div>
+
+<% include ../partials/footer %>
