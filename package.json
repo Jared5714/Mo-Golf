@@ -151,6 +151,7 @@
       "resolved": "https://registry.npmjs.org/ipaddr.js/-/ipaddr.js-1.6.0.tgz",
       "version": "1.6.0"
     },
+    "locus": "^2.0.1",
     "media-typer": {
       "integrity": "sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=",
       "resolved": "https://registry.npmjs.org/media-typer/-/media-typer-0.3.0.tgz",
@@ -198,6 +199,7 @@
       "version": "0.6.1"
     },
     "node-geocoder": "^3.22.0",
+    "nodemon": "^1.17.5",
     "on-finished": {
       "integrity": "sha1-IPEzZIGwg811M3mSoWlxqi2QaUc=",
       "requires": {

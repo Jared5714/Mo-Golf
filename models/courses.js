@@ -4,7 +4,6 @@ let courseSchema = new mongoose.Schema({
     name: String,
     image: String,
     cost: Number,
-    // location:,
     description: String,
     location: String,
     lat: Number,

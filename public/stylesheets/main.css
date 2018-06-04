@@ -27,14 +27,23 @@
     margin: 0 auto;
 }
 .navbar{
-    background-color: #008e10;
+    background-color: #00A103;
 }
 
 .footer {
-    background-color: #008e10;
+    background-color: #00A103;
     color: #fff;
 }
 
 .jumbotron{
-    background-color: #008e10;
+    background-color: #00A103;
+}
+
+.list-header{
+    background-color: #00A103;
+    color: white;
+}
+
+ul {
+  list-style-type: none;
 }

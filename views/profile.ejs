@@ -7,8 +7,11 @@
       <div class = "thumbnail">
       <img src = "<%= user.avatar %>">
       </div>
+      <ul>
       <li><%= user.username %></li>
       <li><%= user.email %></li>
+      <li><a href ="/profileedit/<%= user._id%>/edit" class="btn btn-outline-warning btn-sm">Update</a></li>
+      </ul>
     </div>
     <div class = "col-md-9">
       <h3>User Courses</h3>

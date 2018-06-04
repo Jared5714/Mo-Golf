@@ -16,14 +16,28 @@ var geocoder = NodeGeocoder(options);
 
 // INDEX - Show all courses
 router.get("/", function(req, res){
-    Course.find({}, function(err, allCourses){
-        if(err){
-            console.log(err);
-        }
-        else{
-            res.render("courses/index", {courses : allCourses});
-        }
-    });
+    if(req.query.search) {
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+        
+        Course.find({name: regex}, function(err, allCourses){
+           if(err){
+              console.log(err);
+           } else {
+               if(allCourses.length < 1){
+                   req.flash("error", "No Matches Found");
+               }
+              res.render("courses/index",{courses:allCourses});
+           }
+        });
+    } else {
+        Course.find({}, function(err, allCourses){
+           if(err){
+               console.log(err);
+           } else {
+              res.render("courses/index",{courses:allCourses});
+           }
+        });
+    }
 });
 
 // CREATE - Add new course
@@ -45,7 +59,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
     var lat = data[0].latitude;
     var lng = data[0].longitude;
     var location = data[0].formattedAddress;
-    var newCourse = {name: name, image: image, description: desc, author:author, location: location, lat: lat, lng: lng};
+    var newCourse = {name: name, image: image, cost:cost, description: desc, author:author, location: location, lat: lat, lng: lng};
     
     Course.create(newCourse, function(err, added){
         if(err){
@@ -78,7 +92,7 @@ router.get("/:id", function(req, res){
 // EDIT COURSE
 router.get("/:id/edit", middleware.checkOwnership, function(req, res){
         Course.findById(req.params.id, function(err, foundCourse){
-            if (err) {
+            if(err) {
         req.flash("error", "Course Was Not Found!");
         res.redirect("back");
       } else {
@@ -123,5 +137,9 @@ router.delete("/:id/delete", middleware.checkOwnership, function(req, res){
         }
     });
 });
+
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 module.exports = router;

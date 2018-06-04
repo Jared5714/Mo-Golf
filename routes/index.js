@@ -2,7 +2,9 @@ var express = require("express"),
     router = express.Router({mergeParams: true}),
     User = require("../models/user"),
     Course = require("../models/courses"),
-    passport = require("passport");
+    passport = require("passport"),
+    middleware = require("../middleware");
+
 
 
 // LANDING PAGE
@@ -55,7 +57,7 @@ router.get("/logout", function(req, res){
 });
 
 // PROFILE
-router.get("/profile/:id", function(req, res){
+router.get("/profile/:id", middleware.isLoggedIn, function(req, res){
     User.findById(req.params.id, function(err, foundUser){
         if(err){
             console.log(err);
@@ -69,7 +71,30 @@ router.get("/profile/:id", function(req, res){
     })
   });
 });
-    
+
+// PROFILE UPDATE
+router.get("/profileedit/:id/edit", middleware.isLoggedIn, function(req, res){
+    User.findById(req.params.id, function(err, foundUser){
+        if(err){
+            console.log(err);
+        } else{
+            res.render("profileedit", {user: foundUser});
+        }
+    });
+});
+
+router.put("/profileedit/:id", function(req, res){
+    User.findByIdAndUpdate(req.params.id, req.body.user, function(err, foundUser){
+        if(err){
+            req.flash("error", "No User Found!");
+        } else{
+            req.flash("success", "User Updated!");
+            res.redirect("/profile/" + req.params.id);
+
+        }
+    });
+});
+
 
 
 module.exports = router;
